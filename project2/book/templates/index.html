@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Engine
+{% endblock %}
+
+{% block body %}
+    <h1>User Log_in</h1>
+
+    <form action="{{ url_for('login') }}" method="post">
+
+        <div class="form-group">
+            <input class="form-control" name="usrname" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" type="password" placeholder="password">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Log in</button>
+        </div>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    BOOK
+{% endblock %}
+
+{% block body %}
+    <h1>Book Details</h1>
+
+    <ul>
+        <li>ISBN: {{ res.isbn }}</li>
+        <li>Title: {{ res.title }}</li>
+        <li>Author: {{ res.author}}</li>
+        <li>Year: {{ res.year}}</li>
+    </ul>
+    <h1>Reviews</h1>
+    <ul>
+        <li>rating: {{ reviews.rating }}</li>
+        <li>content: {{ reviews.content }}</li>
+    </ul>
+
+    <h1>Your Review<h1>
+        <form action="{{ url_for('review', isbn=res.isbn, usrname=user ) }}" method="post">
+
+            <div class="form-group">
+                <select class="form-control" name="rating">
+                    <option value ="1">1</option>
+                    <option value ="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="content" type="text" placeholder="Your opinion">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+{% endblock %}
